@@ -11,25 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150405021535) do
+ActiveRecord::Schema.define(version: 20150410010311) do
 
-  create_table "products", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.float    "price"
-    t.float    "weight"
-    t.float    "average_rating"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  create_table "rates", force: :cascade do |t|
-    t.integer  "rating"
-    t.integer  "product_id"
+  create_table "blogs", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "rates", ["product_id"], name: "index_rates_on_product_id"
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.float    "price"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "products_categories", id: false, force: :cascade do |t|
+    t.integer "product_id",  null: false
+    t.integer "category_id", null: false
+  end
+
+  add_index "products_categories", ["product_id", "category_id"], name: "index_products_categories_on_product_id_and_category_id", unique: true
 
 end
