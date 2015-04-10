@@ -28,6 +28,9 @@ gem 'annotate'
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 
+gem 'carrierwave'
+gem 'rmagick'
+
 group :test, :development do
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'

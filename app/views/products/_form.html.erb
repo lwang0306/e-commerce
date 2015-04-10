@@ -28,6 +28,10 @@
       <p>(You can select multiple options)</p><br>
       <%= collection_select :category, :category_id, Category.all, :id, :name, {}, {:multiple => true} %>
     </div>
+    <div class="field">
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>
