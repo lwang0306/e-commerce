@@ -31,6 +31,8 @@ gem 'less-rails'
 gem 'carrierwave'
 gem 'rmagick'
 
+gem 'devise'
+
 group :test, :development do
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
