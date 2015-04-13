@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers:{sessions:"users/session"}
+  devise_for :users
   resources :categories
   resources :products
   resources :blogs
