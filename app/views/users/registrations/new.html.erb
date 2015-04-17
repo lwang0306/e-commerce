@@ -28,6 +28,7 @@
 
   <div class="field">
     <%= f.label :gender %><br />
+    <p>(only Female and Male is valid)</p>
     <%= f.text_field :gender, autocomplete: "off" %>
   </div>
 
@@ -39,6 +40,7 @@
 
   <div class="field">
     <%= f.label :phone_number %><br />
+    <p>(the phone number you filled in should be less than 13 digits)</p>
     <%= f.text_field :phone_number, autocomplete: "off" %>
   </div>
 
