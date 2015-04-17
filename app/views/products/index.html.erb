@@ -7,9 +7,9 @@
 <h4>See by categories:</h4>
 <table>
   <tr>
-
+    <td><%= link_to 'All Categories', products_path %></td>
     <% Category.all.each do |category| %>
-        <td><%= link_to category.name, category %></td>
+        <td><%= link_to category.name, 'products/cate/' + category.id.to_s %></td>
     <% end %>
   </tr>
 </table>
