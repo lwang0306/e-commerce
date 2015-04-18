@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   resources :blogs
   resources :products
 
+  resources :products do
+    collection do
+      get 'cate/:cate_num' => 'products#see_by_category'
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

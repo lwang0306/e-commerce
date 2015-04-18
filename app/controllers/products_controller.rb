@@ -25,6 +25,11 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    category_ids = params[:category][:category_id][1..-1]
+    category_ids.each do |i|
+      c = Category.find(i)
+      @product.categories << c
+    end
 
     respond_to do |format|
       if @product.save
@@ -61,6 +66,17 @@ class ProductsController < ApplicationController
     end
   end
 
+  def see_by_category
+    num = params[:cate_num]
+    c = Category.find(num)
+    @products = Category.find(num).products
+    render :index
+  end
+
+  # def categories
+  #   @categories = Product.find(params[:id]).categories
+  # end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -70,5 +86,6 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:name, :price, :description, :image)
+      # params.require(:category).permit(:id, :name)
     end
 end
