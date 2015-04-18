@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admins, :controllers => {:registrations => "my_devise/registrations", :sessions => "my_devise/sessions"  }
   resources :welcomes
   devise_for :users
   resources :categories
@@ -21,16 +21,11 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   # 
   # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+    resources :welcomes do
+      collection do
+        get 'admin_page' => 'welcomes#admin_page'
+      end
+    end
 
   # Example resource route with sub-resources:
   #   resources :products do
