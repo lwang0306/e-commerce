@@ -24,12 +24,12 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    # @category = Category.find();
-    # @product = Product.new(@category, )
     @product = Product.new(product_params)
-    puts "--------------------"
-    puts product_params[:categories]
-    # @category = Category.findproduct_params[:categories]
+    category_ids = params[:category][:category_id][1..-1]
+    category_ids.each do |i|
+      c = Category.find(i)
+      @product.categories << c
+    end
 
     respond_to do |format|
       if @product.save
@@ -67,25 +67,9 @@ class ProductsController < ApplicationController
   end
 
   def see_by_category
-    num = params[:cate_num].to_s.to_i
-    # all_products = Product.all
-    # @products = []
-    # all_products.each do |p|
-    #   all_categories = categories
-    #   all_categories.each do |c|
-    #     if (c.id == num) then
-    #       @products << p
-    #     end
-    #   end
-    # end
-
+    num = params[:cate_num]
     c = Category.find(num)
     @products = Category.find(num).products
-
-
-    # num = :cate_num.to_s.to_i
-    # @products = []
-    # @products << Product.find(num)
     render :index
   end
 
@@ -101,6 +85,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price, :description, :image, :categories)
+      params.require(:product).permit(:name, :price, :description, :image)
+      # params.require(:category).permit(:id, :name)
     end
 end

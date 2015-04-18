@@ -9,7 +9,7 @@
   <tr>
     <td><%= link_to 'All Categories', products_path %></td>
     <% Category.all.each do |category| %>
-        <td><%= link_to category.name, 'products/cate/' + category.id.to_s %></td>
+        <td><%= link_to category.name, products_path + '/cate/' + category.id.to_s %></td>
     <% end %>
   </tr>
 </table>
