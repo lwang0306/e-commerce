@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Your Shopping Cart</h1>
+
+<br><br><br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Preview</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th colspan="4"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% showed_id = [] %>
+  <% @products.each do |product| %>
+      <% if (!showed_id.include?(product.id)) then %>
+          <% showed_id << product.id %>
+      <tr>
+        <td><%= image_tag product.image_url(:thumb).to_s %></td>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <% current_user = User.find(session['warden.user.user.key'][0][0]) %>
+        <% count = 0 %>
+        <% items = current_user.products %>
+        <% items.each do |item| %>
+            <% if (item.id == product.id)  then %>
+                <% count += 1 %>
+            <% end %>
+        <% end %>
+        <td><%= count %></td>
+        <td><%= link_to "&nbsp;-&nbsp;".html_safe, products_path + '/decrease/' + product.id.to_s %></td>
+        <td><%= 'Edit Quantity' %></td>
+        <td><%= link_to "&nbsp;+&nbsp;".html_safe, products_path + '/increase/' + product.id.to_s %></td>
+      </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Return to All Product', products_path %>

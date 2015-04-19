@@ -8,7 +8,16 @@ Rails.application.routes.draw do
   resources :blogs
   resources :products
 
-
+  resources :products do
+    collection do
+      get '/admin/branch' => 'products#admin'
+      get 'cate/:cate_num' => 'products#see_by_category'
+      get '/my/shopping_cart' => 'products#view_shopping_cart'
+      get '/add/:new_item_id/shopping_cart' => 'products#add_to_shopping_cart'
+      get '/decrease/:decrease_item_id' => 'products#decrease_quantity'
+      get '/increase/:increase_item_id' => 'products#increase_quantity'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
