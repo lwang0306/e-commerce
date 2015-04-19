@@ -1,4 +1,4 @@
-<h2><li><%= link_to "Product List", products_path %></li></h2>
+<h2><li><%= link_to "Product List",  admin_branch_products_path %></li></h2>
 <p>Admins can add new products</p>
 
 <h2><li><%= link_to "Category List", categories_path %></li></h2>
@@ -10,5 +10,7 @@
 
 <br/>
 <br/>
-<h2><li><%= link_to "Log out", destroy_admin_session_path, :method => :delete  %></li></h2>
+<!--<h2><li><%= link_to "Log out", destroy_admin_session_path, :method => :delete  %></li></h2>-->
+<h2><%= button_to( "Log out", destroy_admin_session_path, :method => :delete)  %></h2>
 <p>Please log out</p>
+

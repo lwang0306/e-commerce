@@ -2,7 +2,7 @@ class WelcomesController < ApplicationController
   before_action :set_welcome, only: [:show, :edit, :update, :destroy]
 
   def admin_page
-
+    render 'admin_page', :layout => false
   end
   # GET /welcomes
   # GET /welcomes.json
@@ -13,7 +13,7 @@ class WelcomesController < ApplicationController
   # GET /welcomes/1
   # GET /welcomes/1.json
   def show
-    render 'admin_page', :layout => false
+
   end
 
   # GET /welcomes/new
