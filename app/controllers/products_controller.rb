@@ -94,7 +94,8 @@ class ProductsController < ApplicationController
     current_user = User.find(session['warden.user.user.key'][0][0])
     current_user.products << Product.find(params[:new_item_id])
     @products = current_user.products
-    render :shopping_cart
+    # render :shopping_cart
+    redirect_to '/products/my/shopping_cart'
   end
 
   def decrease_quantity
