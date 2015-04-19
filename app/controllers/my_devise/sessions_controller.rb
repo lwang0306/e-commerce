@@ -9,10 +9,10 @@ class  MyDevise::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    render 'welcomes/admin_page'
+    render 'welcomes/admin_page', :layout => false
   end
 
-  # DELETE /resource/sign_out
+  # # DELETE /resource/sign_out
   def destroy
     super
   end

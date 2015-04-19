@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :admins, :controllers => {:registrations => "my_devise/registrations", :sessions => "my_devise/sessions"  }
+
   resources :welcomes
   devise_for :users
   resources :categories
@@ -7,11 +8,7 @@ Rails.application.routes.draw do
   resources :blogs
   resources :products
 
-  resources :products do
-    collection do
-      get 'cate/:cate_num' => 'products#see_by_category'
-    end
-  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -19,7 +16,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcomes#index'
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  # get '/admin', to: 'products#admin'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
@@ -29,9 +26,22 @@ Rails.application.routes.draw do
   # Example resource route with options:
     resources :welcomes do
       collection do
-        get 'admin_page' => 'welcomes#admin_page'
+        get '/admin/page' => 'welcomes#admin_page'
       end
     end
+
+
+  resources :products do
+    collection do
+      get '/admin/branch' => 'products#admin'
+    end
+  end
+
+  resources :blogs do
+    collection do
+      get '/admin/branch' => 'blogs#admin'
+    end
+  end
 
   # Example resource route with sub-resources:
   #   resources :products do

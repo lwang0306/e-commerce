@@ -8,7 +8,6 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     # super
-
     render 'welcomes/admin_page'
   end
 

@@ -1,6 +1,10 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
+  def admin
+    @blogs = Blog.all
+    render 'admin_branch', :layout => false
+  end
   # GET /blogs
   # GET /blogs.json
   def index

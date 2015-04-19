@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+  def admin
+    @products = Product.all
+    render 'admin_branch', :layout => false
+  end
   # GET /products
   # GET /products.json
   def index
