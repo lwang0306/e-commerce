@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   resources :products do
     collection do
       get 'cate/:cate_num' => 'products#see_by_category'
+      get '/my/shopping_cart' => 'products#view_shopping_cart'
+      get '/add/:new_item_id/shopping_cart' => 'products#add_to_shopping_cart'
+      get '/decrease/:decrease_item_id' => 'products#decrease_quantity'
+      get '/increase/:increase_item_id' => 'products#increase_quantity'
     end
   end
 

@@ -80,9 +80,44 @@ class ProductsController < ApplicationController
     render :index
   end
 
-  # def categories
-  #   @categories = Product.find(params[:id]).categories
-  # end
+  def view_shopping_cart
+    current_user = User.find(session['warden.user.user.key'][0][0])
+    @products = current_user.products
+    render :shopping_cart
+  end
+
+  def add_to_shopping_cart
+    current_user = User.find(session['warden.user.user.key'][0][0])
+    current_user.products << Product.find(params[:new_item_id])
+    @products = current_user.products
+    render :shopping_cart
+  end
+
+  def decrease_quantity
+    current_user = User.find(session['warden.user.user.key'][0][0])
+    product_to_delete = Product.find(params[:decrease_item_id])
+    original_quantity = 0
+    current_user.products.each do |p|
+      if (p.id.to_s == params[:decrease_item_id]) then
+        original_quantity += 1
+      end
+    end
+    current_user.products.delete(product_to_delete)
+    original_quantity -= 1
+    1.upto(original_quantity) do
+      current_user.products << product_to_delete
+    end
+    @products = current_user.products
+    redirect_to "/products/my/shopping_cart"
+  end
+
+  def increase_quantity
+    current_user = User.find(session['warden.user.user.key'][0][0])
+    product_to_add = Product.find(params[:increase_item_id])
+    current_user.products << product_to_add
+    @products = current_user.products
+    redirect_to "/products/my/shopping_cart"
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

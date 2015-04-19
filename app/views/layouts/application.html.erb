@@ -60,8 +60,8 @@
         <ul class="nav navbar-nav navbar pull-right">
           <% if session['warden.user.user.key'] != nil then %>
             <li><%= link_to "Hello, " + User.find(session['warden.user.user.key'][0][0]).name, '/welcomes' %></li>
+              <li><%= link_to "Shopping Cart", products_path + '/my/shopping_cart' %></li>
           <% end %>
-          <li><%= link_to "Shopping Cart", '' %></li>
           <li><%= link_to "Sign In", new_user_session_path %></li>
           <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
           <li><%= link_to "Admin", new_admin_session_path %></li>
