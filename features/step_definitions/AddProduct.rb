@@ -125,6 +125,6 @@ Manganese 10%"
   click_button 'Create Product'
 end
 
-Then(/^I should be able to see the erro for the description$/) do
+Then(/^I should be able to see the error for the description$/) do
   assert page.has_content?("Description 2000 characters is the maximum allowed")
 end

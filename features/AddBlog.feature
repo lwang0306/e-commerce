@@ -8,5 +8,8 @@ Scenario: Add a blog
   Given I'm on the blog creation page
   When I add a new blog
   Then I should be able to see the new blog's page
+
+Scenario: Add a blog with blank title
+  Given I'm on the blog creation page
   When I add a new blog leaving the title blank
   Then I should be able to see the error
