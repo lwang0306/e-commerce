@@ -32,6 +32,7 @@ class ProductsController < ApplicationController
     end
 
     respond_to do |format|
+
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
@@ -45,6 +46,12 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    category_ids = params[:category][:category_id][1..-1]
+    category_ids.each do |i|
+      c = Category.find(i)
+      @product.categories << c
+    end
+
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
