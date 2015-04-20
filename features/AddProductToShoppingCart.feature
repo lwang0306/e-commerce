@@ -1,4 +1,4 @@
-Feature: Products and product page
+Feature: Product is added to shopping cart on products page
 
   As an user
   so that I can add a product to my shopping cart
