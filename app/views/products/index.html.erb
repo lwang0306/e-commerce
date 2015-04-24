@@ -28,51 +28,42 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="filters col-md-12 col-xs-12">
+        <ul id="filters" class="clearfix">
+          <li><span class="filter" data-filter="all">All</span></li>
+          <% Category.all.each do |category| %>
+              <li><span class="filter"><%= link_to category.name, products_path + '/cate/' + category.id.to_s %></span></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="row" id="Container">
+
+      <% @products.each do |product| %>
+          <div class="col-md-3 col-sm-6 mix portfolio-item">
+            <div class="portfolio-wrapper">
+              <div class="portfolio-thumb">
+                <%= image_tag product.image_url().to_s %>
+                <div class="hover">
+                  <div class="hover-iner">
+                    <%= link_to "Quick View", product.image_url().to_s, :class =>"fancybox" %>
+                  <span><%= product.name %></span>
+                  </div>
+                </div>
+              </div>
+              <div class="label-text">
+                <h3><%= link_to product.name, product %></h3>
+                <span class="text-category">$<%= product.price %></span>
+              </div>
+            </div>
+          </div>
+      <% end %>
+
+
+    </div>
   </div>
 </div>
-
-
-
-
-
-<h4>See by categories:</h4>
-<table>
-  <tr>
-    <td><%= link_to 'ALL', products_path %></td>
-    <% Category.all.each do |category| %>
-        <td><%= link_to category.name, products_path + '/cate/' + category.id.to_s %></td>
-    <% end %>
-  </tr>
-</table>
-
-<br><br>
-
-<table>
-  <thead>
-    <tr>
-      <th>Preview</th>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Description</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= image_tag product.image_url(:thumb).to_s %></td>
-        <td><%= product.name %></td>
-        <td><%= product.price %></td>
-        <td><%= product.description %></td>
-        <td><%= link_to 'Show', product %></td>
-        <!--<td><%= link_to 'Edit', edit_product_path(product) %></td>-->
-        <!--<td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-        <td><%= link_to 'Add To Shopping Cart', products_path + '/add/' + product.id.to_s + '/shopping_cart' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 
