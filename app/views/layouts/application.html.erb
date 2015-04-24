@@ -36,41 +36,123 @@
 
   <%= javascript_include_tag "application" %>
 
+  <meta charset="utf-8">
+  <title>Grill Responsive Template</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="stylesheet/bootstrap.css">
+  <link rel="stylesheet" href="stylesheet/font-awesome.css">
+  <link rel="stylesheet" href="stylesheet/templatemo_style.css">
+  <link rel="stylesheet" href="stylesheet/templatemo_misc.css">
+  <link rel="stylesheet" href="stylesheet/flexslider.css">
+  <link rel="stylesheet" href="stylesheet/testimonails-slider.css">
+
+  <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+
+
+  <script src="js/vendor/jquery-1.11.0.min.js"></script>
+  <script src="js/vendor/jquery.gmap3.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+
 </head>
+
+
 <body>
 
-<nav class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
+
+<header>
+  <div id="top-header">
     <div class="container">
-      <!--<a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">-->
-        <!--<span class="icon-bar"></span>-->
-        <!--<span class="icon-bar"></span>-->
-        <!--<span class="icon-bar"></span>-->
-      <!--</a>-->
-
-      <div class="container nav-collapse">
-        <ul class="nav navbar-nav navbar pull-left">
-          <li><a class="brand" href='/welcomes'>Pura</a><li>
-          <li><%= link_to "Pura|Eat", products_path %></li>
-          <li><%= link_to "Pura|Beauty", welcomes_path %></li>
-          <li><%= link_to "Pura|Baby", welcomes_path %></li>
-          <li><%= link_to "Pura|Community", blogs_path %></li>
-
-        </ul>
-        <ul class="nav navbar-nav navbar pull-right">
-          <% if session['warden.user.user.key'] != nil then %>
-            <li><%= link_to "Hello, " + User.find(session['warden.user.user.key'][0][0]).name, '/welcomes' %></li>
-              <li><%= link_to "Shopping Cart", products_path + '/my/shopping_cart' %></li>
-          <% end %>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
-          <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-          <li><%= link_to "Admin", new_admin_session_path %></li>
-        </ul>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="home-account">
+            <%= link_to "Home", welcomes_path %>
+            <a href="#">My account</a>
+            <%= link_to "Sign In", new_user_session_path %>
+            <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+            <%= link_to "Admin", new_admin_session_path %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="cart-info">
+            <i class="fa fa-shopping-cart"></i>
+            (<a href="#">5 items</a>) in your cart (<a href="#">$45.80</a>)
+          </div>
+        </div>
       </div>
-      <!--/.nav-collapse -->
     </div>
   </div>
-</nav>
+  <div id="main-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="logo">
+            <a href="#"><img src="images/logo.png" title="Grill Template" alt="Pura Website Template" ></a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="main-menu">
+            <ul>
+              <%= link_to "Home", welcomes_path %>
+              <!--<li><a href="index.html">Home</a></li>-->
+              <li><a href="about-us.html">About</a></li>
+              <%= link_to "Products", products_path %>
+              <!--<li><a href="products.html">Products</a></li>-->
+              <!--<li><a href="contact-us.html">Contact</a></li>-->
+              <%= link_to "Blog", blogs_path %>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="search-box">
+            <form name="search_form" method="get" class="search_form">
+              <input id="search" type="text" />
+              <input type="submit" id="search-button" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!--<nav class="navbar navbar-fixed-top">-->
+  <!--<div class="navbar-inner">-->
+    <!--<div class="container">-->
+      <!--&lt;!&ndash;<a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">&ndash;&gt;-->
+        <!--&lt;!&ndash;<span class="icon-bar"></span>&ndash;&gt;-->
+        <!--&lt;!&ndash;<span class="icon-bar"></span>&ndash;&gt;-->
+        <!--&lt;!&ndash;<span class="icon-bar"></span>&ndash;&gt;-->
+      <!--&lt;!&ndash;</a>&ndash;&gt;-->
+
+      <!--<div class="container nav-collapse">-->
+        <!--<ul class="nav navbar-nav navbar pull-left">-->
+          <!--<li><a class="brand" href='/welcomes'>Pura</a><li>-->
+          <!--<li><%= link_to "Pura|Eat", products_path %></li>-->
+          <!--<li><%= link_to "Pura|Beauty", welcomes_path %></li>-->
+          <!--<li><%= link_to "Pura|Baby", welcomes_path %></li>-->
+          <!--<li><%= link_to "Pura|Community", blogs_path %></li>-->
+
+        <!--</ul>-->
+        <!--<ul class="nav navbar-nav navbar pull-right">-->
+          <!--<% if session['warden.user.user.key'] != nil then %>-->
+            <!--<li><%= link_to "Hello, " + User.find(session['warden.user.user.key'][0][0]).name, '/welcomes' %></li>-->
+              <!--<li><%= link_to "Shopping Cart", products_path + '/my/shopping_cart' %></li>-->
+          <!--<% end %>-->
+          <!--<li><%= link_to "Sign In", new_user_session_path %></li>-->
+          <!--<li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>-->
+          <!--<li><%= link_to "Admin", new_admin_session_path %></li>-->
+        <!--</ul>-->
+      <!--</div>-->
+      <!--&lt;!&ndash;/.nav-collapse &ndash;&gt;-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</nav>-->
 
 <div class="container">
   <div class="row">
@@ -95,7 +177,93 @@
   <!--/row-->
 
   <footer>
-    <p>&copy; Company 2015</p>
+    <div class="container">
+      <div class="top-footer">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="subscribe-form">
+              <span>Get in touch with us</span>
+              <form method="get" class="subscribeForm">
+                <input id="subscribe" type="text" />
+                <input type="submit" id="submitButton" />
+              </form>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="social-bottom">
+              <span>Follow us:</span>
+              <ul>
+                <li><a href="#" class="fa fa-facebook"></a></li>
+                <li><a href="#" class="fa fa-twitter"></a></li>
+                <!--<li><a href="#" class="fa fa-rss"></a></li>-->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-footer">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="about">
+              <h4 class="footer-title">About WellnessCafe</h4>
+              <p>WellnessCafe is free HTML5 template by <span class="blue">template</span><span class="green">mo</span> and it is a free responsive bootstrap layout that can be applied for any purpose.
+                <br><br>Credit goes to <a rel="nofollow" href="http://unsplash.com">Unsplash</a> for photos used in this template.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="shop-list">
+              <h4 class="footer-title">Shop Categories</h4>
+              <ul>
+                <li><a href="#"><i class="fa fa-angle-right"></i>New Grill Menu</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i>Healthy Fresh Juices</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i>Spicy Delicious Meals</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i>Simple Italian Pizzas</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i>Pure Good Yogurts</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i>Ice-cream for kids</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="recent-posts">
+              <h4 class="footer-title">Recent posts</h4>
+              <div class="recent-post">
+                <div class="recent-post-thumb">
+                  <img src="images/recent-post1.jpg" alt="">
+                </div>
+                <div class="recent-post-info">
+                  <h6><a href="#">Delicious and Healthy Menus</a></h6>
+                  <span>24/12/2084</span>
+                </div>
+              </div>
+              <div class="recent-post">
+                <div class="recent-post-thumb">
+                  <img src="images/recent-post2.jpg" alt="">
+                </div>
+                <div class="recent-post-info">
+                  <h6><a href="#">Simple and effective meals</a></h6>
+                  <span>18/12/2084</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="more-info">
+              <h4 class="footer-title">More info</h4>
+              <p>Sed dignissim, diam id molestie faucibus, purus nisl pretium quam, in pulvinar velit massa id elit.</p>
+              <ul>
+                <li><i class="fa fa-phone"></i>000-000-0000</li>
+                <li><i class="fa fa-globe"></i>3600 Chestnut Street, Philadelphia, PA</li>
+                <li><i class="fa fa-envelope"></i><a href="#">info@company.com</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-footer">
+        <p>Copyright © 2084 <a href="#">Your Company Name</a></p>
+      </div>
+
+    </div>
   </footer>
 
 </div>
