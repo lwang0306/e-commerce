@@ -46,7 +46,7 @@ class BlogsController < ApplicationController
       if @blog.save
         # format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
         format.html { render :admin_branch, notice: 'Blog was successfully created.' }
-        format.json { render :index, status: :created, location: admin_branch }
+        format.json { render :index, status: :created, location: :admin_branch }
       else
         format.html { render :new }
         format.json { render json: @blog.errors, status: :unprocessable_entity }
