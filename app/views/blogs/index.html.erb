@@ -1,33 +1,112 @@
 <p id="notice"><%= notice %></p>
+<div id="heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading-content">
+          <h2>Pura Community</h2>
+          <span>Home / <%= link_to 'Our Life Style', blogs_path %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h1>Listing Blogs</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Picture</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+
+
+<!--<div id="product-post">-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading-section">
+          <h2>Listing Blogs</h2>
+          <img src="/assets/under-heading.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+<!--<h1>Listing Blogs</h1>-->
+<div class="container">
     <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= blog.content %></td>
-        <td><%= image_tag blog.picture_url(:thumb).to_s %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <!--<td><%= link_to 'Edit', edit_blog_path(blog) %></td>-->
-        <!--<td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-
+  <div class = "row">
+    <div class="col-md-4 col-sm-6">
+      <div class="blog-post">
+        <div class="blog-thumb">
+          <a href="/blogs/<%= blog.id %>">
+             <%= image_tag blog.picture_url(:thumb).to_s %>
+          </a>
+        </div>
+        <div class="blog-content">
+          <div class="content-show">
+            <h4><%= blog.title %></h4>
+            <!--<span>17 Aug 2084</span>-->
+          </div>
+          <!--<div class="content-hide">-->
+            <!--<%= blog.content %>-->
+          <!--</div>-->
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 col-sm-6">
+      <div style="font-size:12px;color:#606060 ;text-align:justify">
+         <p><%= blog.content %></p>
+      </div>
+    </div>
+  </div>
+    <!--<div class="row">-->
+      <!--<div class="back" >-->
+        <!--<button type="send"><%= link_to 'Show', blog %></button>-->
+        <!--<button type="send"><%= link_to 'Edit', edit_blog_path(blog) %></button>-->
+        <!--<button type="send"><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></button>-->
+      <!--</div>-->
+    <!--</div>-->
+   <% end %>
+</div>
 <br>
-<br>
-<%= link_to 'HomePage', welcomes_path %>
+<div class="container">
+   <div class="back" >
+      <button type="send"><%= link_to 'Home', welcomes_path %></button>
+   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  <!--<table>-->
+  <!--<thead>-->
+    <!--<tr>-->
+      <!--<th>Title</th>-->
+      <!--<th>Content</th>-->
+      <!--<th>Picture</th>-->
+      <!--<th colspan="3"></th>-->
+    <!--</tr>-->
+  <!--</thead>-->
+
+  <!--<tbody>-->
+    <!--<% @blogs.each do |blog| %>-->
+      <!--<tr>-->
+        <!--<td><%= blog.title %></td>-->
+        <!--<td><%= blog.content %></td>-->
+        <!--<td><%= image_tag blog.picture_url(:thumb).to_s %></td>-->
+        <!--<td><%= link_to 'Show', blog %></td>-->
+        <!--&lt;!&ndash;<td><%= link_to 'Edit', edit_blog_path(blog) %></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>&ndash;&gt;-->
+      <!--</tr>-->
+    <!--<% end %>-->
+  <!--</tbody>-->
+<!--</table>-->
+
+
+
+<!--<br>-->
+<!--<br>-->
+<!--<%= link_to 'HomePage', welcomes_path %>-->
