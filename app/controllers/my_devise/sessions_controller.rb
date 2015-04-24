@@ -3,12 +3,14 @@ class  MyDevise::SessionsController < Devise::SessionsController
 
 # GET /resource/sign_in
   def new
+    @blogs = Blog.all.order('id desc')
     super
     #
   end
 
   # POST /resource/sign_in
   def create
+    @blogs = Blog.all.order('id desc')
     render 'welcomes/admin_page', :layout => false
   end
 

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :admins, :controllers => {:registrations => "my_devise/registrations", :sessions => "my_devise/sessions"  }
+  devise_for :admins, :controllers => {:registrations => "my_devise/registrations", :sessions => "my_devise/sessions",
+                                       :confirmations =>"my_devise/confirmations", :omniauthcallbacks => "my_devise/omniauthcallbacks",
+                                       :passwords => "my_devise/passwords", :unlocks => "my_devise/unlocks"
+                                      }
 
   resources :welcomes
   devise_for :users
@@ -49,6 +52,7 @@ Rails.application.routes.draw do
   resources :blogs do
     collection do
       get '/admin/branch' => 'blogs#admin'
+      # get '/admin/single' => 'blogs#single'
     end
   end
 
