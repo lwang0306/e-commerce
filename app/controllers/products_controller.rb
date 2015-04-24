@@ -9,11 +9,24 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    puts "------------------------ number"
+    puts @products.size()
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    all_products = Product.all
+    @recent_products = []
+    if (all_products.size() <= 3) then
+      @recent_products = all_products
+    else
+      size = all_products.size()
+      @recent_products << Product.find(size - 1)
+      @recent_products << Product.find(size - 2)
+      @recent_products << Product.find(size - 3)
+    end
+
   end
 
   # GET /products/new

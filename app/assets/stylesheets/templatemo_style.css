@@ -148,7 +148,7 @@ p {
 /*-- Heading --*/
 
 #heading {
-  background-image: url(bg-image.jpg);
+    background-image: url(../images/bg-image.jpg);
   height: 140px;
 }
 
