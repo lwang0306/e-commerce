@@ -8,11 +8,16 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    # super
     @blogs = Blog.all.order('id desc')
-    render 'welcomes/admin_page'
+     super
+      # render 'welcomes/admin_page'
 
   end
+
+  def after_sign_up_path_for(resource)
+    admin_page_welcomes_path
+  end
+
 
   # GET /resource/edit
   def edit
