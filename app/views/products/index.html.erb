@@ -1,13 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pura|Eat</h1>
+<br>
+
+<div id="heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading-content">
+          <h2>Pura|Eat Products</h2>
+          <span><a href="/welcomes">Home</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <br>
+
+<div id="products-post">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="product-heading">
+          <h2>Hungry ?</h2>
+          <img src="/assets/under-heading.png" alt="" >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 <h4>See by categories:</h4>
 <table>
   <tr>
-    <td><%= link_to 'All Categories', products_path %></td>
+    <td><%= link_to 'ALL', products_path %></td>
     <% Category.all.each do |category| %>
         <td><%= link_to category.name, products_path + '/cate/' + category.id.to_s %></td>
     <% end %>
