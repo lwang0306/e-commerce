@@ -9,6 +9,8 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    puts "------------------------ number"
+    puts @products.size()
   end
 
   # GET /products/1
