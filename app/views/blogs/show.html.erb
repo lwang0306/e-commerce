@@ -10,5 +10,9 @@
   <%= @blog.content %>
 </p>
 
+<p>
+  <%= image_tag @blog.picture_url(:thumb).to_s %>
+</p>
+
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <%= link_to 'Back', blogs_path %>
