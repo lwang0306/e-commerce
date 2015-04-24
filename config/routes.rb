@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins, :controllers => {:registrations => "my_devise/registrations", :sessions => "my_devise/sessions"  }
 
   resources :welcomes
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "user_devise/registrations", :sessions => "user_devise/sessions"  }
   resources :categories
   resources :products
   resources :blogs
@@ -36,6 +36,9 @@ Rails.application.routes.draw do
     resources :welcomes do
       collection do
         get '/admin/page' => 'welcomes#admin_page'
+      end
+      collection do
+        get '/aboutus/page' => 'welcomes#aboutus'
       end
     end
 

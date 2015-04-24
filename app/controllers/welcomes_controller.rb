@@ -16,6 +16,11 @@ class WelcomesController < ApplicationController
 
   end
 
+  def aboutus
+    @blogs = Blog.all.order('id desc')
+    render 'about-us'
+  end
+
   # GET /welcomes/new
   def new
 
