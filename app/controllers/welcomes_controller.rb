@@ -7,7 +7,7 @@ class WelcomesController < ApplicationController
   # GET /welcomes
   # GET /welcomes.json
   def index
-
+    @blogs = Blog.all.order('id desc')
   end
 
   # GET /welcomes/1
