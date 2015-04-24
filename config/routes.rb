@@ -5,7 +5,10 @@ Rails.application.routes.draw do
                                       }
 
   resources :welcomes
-  devise_for :users, :controllers => {:registrations => "user_devise/registrations", :sessions => "user_devise/sessions"  }
+  devise_for :users, :controllers => {:registrations => "user_devise/registrations", :sessions => "user_devise/sessions",
+                                      :confirmations =>"user_devise/confirmations", :omniauthcallbacks => "user_devise/omniauthcallbacks",
+                                      :passwords => "user_devise/passwords", :unlocks => "user_devise/unlocks"
+                   }
   resources :categories
   resources :products
   resources :blogs

@@ -19,7 +19,7 @@ class WelcomesController < ApplicationController
 
   def aboutus
     @blogs = Blog.all.order('id desc')
-    render 'about-us'
+    render 'about-us', :layout  => false
   end
 
   # GET /welcomes/new
