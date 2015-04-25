@@ -23,4 +23,9 @@ class Admins::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.for(:sign_in) << :attribute
   # end
+
+  private
+  def welcome_param
+    params.require(:welcome).permit(:id)
+  end
 end

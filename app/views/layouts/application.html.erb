@@ -71,11 +71,14 @@
       <div class="row">
         <div class="col-md-6">
           <div class="home-account">
-            <%= link_to "Home", welcomes_path %>
-            <a href="#">My account</a>
-            <%= link_to "Sign In", new_user_session_path %>
-            <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-            <%= link_to "Admin", new_admin_session_path %>
+            <%= link_to "Home", root_path %>
+            <% if (session['warden.user.user.key'] != nil) then %>
+                <%= link_to "Hello, " + User.find(session['warden.user.user.key'][0][0]).name, :style=>"color:orange;"%>
+                <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+            <% else %>
+                <%= link_to "Sign In", new_user_session_path %>
+                <%= link_to "Sign Up", new_user_registration_path %>
+            <% end %>
           </div>
         </div>
         <div class="col-md-6">
@@ -86,6 +89,10 @@
             in your cart
             (<%= link_to "$" + User.find(session['warden.user.user.key'][0][0]).total_price_in_cart().to_s, '/products/my/shopping_cart' %>)
           </div>
+          <% else %>
+              <div class="cart-info">
+                <%= link_to "Admin", new_admin_session_path, :style=>"color:grey;" %>
+              </div>
           <% end %>
         </div>
       </div>
@@ -96,13 +103,13 @@
       <div class="row">
         <div class="col-md-3">
           <div class="logo">
-            <a href="#"><img src="../../images/logo.png" title="Grill Template" alt="Pura Website Template" ></a>
+            <%= link_to image_tag("../../images/logo.png"), root_path %>
           </div>
         </div>
         <div class="col-md-6">
           <div class="main-menu">
             <ul>
-              <%= link_to "Home", welcomes_path %>
+              <%= link_to "Home", root_path %>
               <!--<li><a href="index.html">Home</a></li>-->
               <!--<li><a href="about-us.html.erb">About</a></li>-->
               <%= link_to "About",  aboutus_page_welcomes_path %>
@@ -139,8 +146,8 @@
         <!--<ul class="nav navbar-nav navbar pull-left">-->
           <!--<li><a class="brand" href='/welcomes'>Pura</a><li>-->
           <!--<li><%= link_to "Pura|Eat", products_path %></li>-->
-          <!--<li><%= link_to "Pura|Beauty", welcomes_path %></li>-->
-          <!--<li><%= link_to "Pura|Baby", welcomes_path %></li>-->
+          <!--<li><%= link_to "Pura|Beauty", root_path %></li>-->
+          <!--<li><%= link_to "Pura|Baby", root_path %></li>-->
           <!--<li><%= link_to "Pura|Community", blogs_path %></li>-->
 
         <!--</ul>-->
