@@ -13,17 +13,20 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @blogs = Blog.all.order('id desc')
+    render :layout => false
   end
 
   # GET /categories/new
   def new
     @category = Category.new
     @blogs = Blog.all.order('id desc')
+    render :layout => false
   end
 
   # GET /categories/1/edit
   def edit
     @blogs = Blog.all.order('id desc')
+    render :layout => false
   end
 
   # POST /categories
