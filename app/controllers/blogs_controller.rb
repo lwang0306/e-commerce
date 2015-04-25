@@ -11,18 +11,21 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog.all.order('id desc')
     @blogs = Blog.all
+
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
     @blogs = Blog.all.order('id desc')
+
   end
 
   # GET /blogs/new
   def new
     @blogs = Blog.all.order('id desc')
     @blog = Blog.new
+    render :layout => false
   end
 
   # # GET /blogs/new
@@ -34,6 +37,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1/edit
   def edit
     @blogs = Blog.all.order('id desc')
+    render :layout => false
   end
 
   # POST /blogs

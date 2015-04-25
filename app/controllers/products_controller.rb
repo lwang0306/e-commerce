@@ -27,17 +27,20 @@ class ProductsController < ApplicationController
     end
     @products = Product.all
     @blogs = Blog.all.order('id desc')
+
   end
 
   # GET /products/new
   def new
     @product = Product.new
     @blogs = Blog.all.order('id desc')
+    render :layout => false
   end
 
   # GET /products/1/edit
   def edit
     @blogs = Blog.all.order('id desc')
+    render :layout => false
   end
 
   # POST /products
@@ -53,8 +56,8 @@ class ProductsController < ApplicationController
     respond_to do |format|
 
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
+        format.html { render :admin_branch, notice: 'Product was successfully created.' }
+        format.json { render :index, status: :created, location: :admin_branch }
       else
         format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
@@ -74,8 +77,8 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product }
+        format.html { render :admin_branch, notice: 'Product was successfully created.' }
+        format.json { render :show, status: :ok, location: :admin_branch }
       else
         format.html { render :edit }
         format.json { render json: @product.errors, status: :unprocessable_entity }
