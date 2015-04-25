@@ -11,4 +11,17 @@ class User < ActiveRecord::Base
   validates :gender, format: { with: /^[f,F][e,E][m,M][a,A][l,L][E,e]$|^[m,M][a,A][l,L][E,e]$/, message: "only allows male or female" ,:multiline => true}
 
   has_and_belongs_to_many :products, :through => :users_products, :join_table => "users_products"
+
+  def num_of_items_in_cart
+    self.products.size()
+  end
+
+  def total_price_in_cart
+    items = self.products
+    price = 0.00
+    items.each do |item|
+      price += item.price
+    end
+    price
+  end
 end

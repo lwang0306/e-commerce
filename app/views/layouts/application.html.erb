@@ -79,10 +79,14 @@
           </div>
         </div>
         <div class="col-md-6">
+          <% if (session['warden.user.user.key'] != nil) then %>
           <div class="cart-info">
             <i class="fa fa-shopping-cart"></i>
-            (<a href="#">5 items</a>) in your cart (<a href="#">$45.80</a>)
+            (<%= link_to User.find(session['warden.user.user.key'][0][0]).num_of_items_in_cart().to_s + ' items', '/products/my/shopping_cart' %>)
+            in your cart
+            (<%= link_to "$" + User.find(session['warden.user.user.key'][0][0]).total_price_in_cart().to_s, '/products/my/shopping_cart' %>)
           </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -92,7 +96,7 @@
       <div class="row">
         <div class="col-md-3">
           <div class="logo">
-            <a href="#"><img src="../images/logo.png" title="Grill Template" alt="Pura Website Template" ></a>
+            <a href="#"><img src="../../images/logo.png" title="Grill Template" alt="Pura Website Template" ></a>
           </div>
         </div>
         <div class="col-md-6">
