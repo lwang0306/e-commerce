@@ -106,8 +106,8 @@ class ProductsController < ApplicationController
   def view_shopping_cart
     current_user = User.find(session['warden.user.user.key'][0][0])
     @products = current_user.products
-    render :shopping_cart
     @blogs = Blog.all.order('id desc')
+    render :shopping_cart
   end
 
   def add_to_shopping_cart
