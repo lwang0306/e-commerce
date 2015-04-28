@@ -34,6 +34,7 @@ gem 'rmagick'
 gem 'devise'
 
 gem "fog"
+gem "fog-aws"
 
 group :test, :development do
   gem 'cucumber-rails', :require => false
