@@ -47,6 +47,8 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @products = Product.all
+    @blogs = Blog.all.order('id desc')
     category_ids = params[:category][:category_id][1..-1]
     category_ids.each do |i|
       c = Category.find(i)
@@ -63,12 +65,15 @@ class ProductsController < ApplicationController
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
-    @blogs = Blog.all.order('id desc')
+
+
   end
 
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    @products = Product.all
+    @blogs = Blog.all.order('id desc')
     category_ids = params[:category][:category_id][1..-1]
     category_ids.each do |i|
       c = Category.find(i)
@@ -84,18 +89,20 @@ class ProductsController < ApplicationController
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
-    @blogs = Blog.all.order('id desc')
+
   end
 
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
     @product.destroy
+    @products = Product.all
+    @blogs = Blog.all.order('id desc')
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { render :admin_branch, notice: 'Products was successfully destroyed.' }
       format.json { head :no_content }
     end
-    @blogs = Blog.all.order('id desc')
+
   end
 
   def see_by_category
