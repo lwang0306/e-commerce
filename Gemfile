@@ -33,6 +33,8 @@ gem 'rmagick'
 
 gem 'devise'
 
+gem 'fog-aws'
+
 group :test, :development do
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
