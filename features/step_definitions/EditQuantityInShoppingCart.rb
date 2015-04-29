@@ -14,7 +14,8 @@ Given(/^I added one product to shopping cart from products page$/) do
   fill_in 'Phone number', :with => '1234567'
   click_button 'Sign up'
   visit(products_path)
-  click_link 'Add To Shopping Cart'
+  click_link 'Silk'
+  click_link 'Add to Cart'
 end
 
 When(/^I increase the quantity of this product in shopping cart$/) do
@@ -52,9 +53,11 @@ Given(/^I added one product with quantity more than one to shopping cart from pr
   fill_in 'Phone number', :with => '1234567'
   click_button 'Sign up'
   visit(products_path)
-  click_link 'Add To Shopping Cart'
+  click_link 'Silk'
+  click_link 'Add to Cart'
   visit(products_path)
-  click_link 'Add To Shopping Cart'
+  click_link 'Silk'
+  click_link 'Add to Cart'
 end
 
 When(/^I decrease the quantity of this product in shopping cart$/) do

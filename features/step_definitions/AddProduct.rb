@@ -10,7 +10,7 @@ When(/^I add a new product$/) do
 end
 
 Then(/^I should be able to see the new product's page$/) do
-  assert page.has_content?("Product was successfully created.")
+  assert_text(/Listing Products/)
 end
 
 When(/^I add a new product leaving the name blank$/) do

@@ -9,7 +9,7 @@
 
   <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
   <!--[if lt IE 9]>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascripts"></script>
   <![endif]-->
 
   <%= stylesheet_link_tag "application", :media => "all" %>
@@ -44,20 +44,20 @@
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="stylesheet/bootstrap.css">
-  <link rel="stylesheet" href="stylesheet/font-awesome.css">
-  <link rel="stylesheet" href="stylesheet/templatemo_style.css">
-  <link rel="stylesheet" href="stylesheet/templatemo_misc.css">
-  <link rel="stylesheet" href="stylesheet/flexslider.css">
-  <link rel="stylesheet" href="stylesheet/testimonails-slider.css">
+  <link rel="stylesheet" href="../../stylesheet/bootstrap.css">
+  <link rel="stylesheet" href="../../stylesheet/font-awesome.css">
+  <link rel="stylesheet" href="../../stylesheet/templatemo_style.css">
+  <link rel="stylesheet" href="../../stylesheet/templatemo_misc.css">
+  <link rel="stylesheet" href="../../stylesheet/flexslider.css">
+  <link rel="stylesheet" href="../../stylesheet/testimonails-slider.css">
 
-  <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+  <script src="../../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 
 
-  <script src="js/vendor/jquery-1.11.0.min.js"></script>
-  <script src="js/vendor/jquery.gmap3.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <script src="../../js/vendor/jquery-1.11.0.min.js"></script>
+  <script src="../../js/vendor/jquery.gmap3.min.js"></script>
+  <script src="../../js/plugins.js"></script>
+  <script src="../../js/main.js"></script>
 
 
 </head>
@@ -74,7 +74,7 @@
           <div class="home-account">
             <%= link_to "Home", root_path %>
             <% if (session['warden.user.user.key'] != nil) then %>
-                <%= link_to "Hello, " + User.find(session['warden.user.user.key'][0][0]).name, :style=>"color:orange;"%>
+                <%= link_to "Hello, " + User.find(session['warden.user.user.key'][0][0]).name, root_path, :style=>"color:orange;"%>
                 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
             <% else %>
                 <%= link_to "Sign In", new_user_session_path %>

@@ -9,7 +9,7 @@ When(/^I add a new blog$/) do
 end
 
 Then(/^I should be able to see the new blog's page$/) do
-  assert page.has_content?("Blog was successfully created.")
+  assert_text(/Listing Blogs/)
 end
 
 When(/^I add a new blog leaving the title blank$/) do

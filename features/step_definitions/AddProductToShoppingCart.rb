@@ -18,7 +18,8 @@ When(/^I add a product to shopping cart$/) do
   fill_in 'Phone number', :with => '1234567'
   click_button 'Sign up'
   visit(products_path)
-  click_link 'Add To Shopping Cart'
+  click_link 'Silk'
+  click_link 'Add to Cart'
 end
 
 Then(/^I should be able to see the product in shopping cart$/) do
@@ -46,9 +47,11 @@ When(/^I add a product that is already in cart to shopping cart$/) do
   fill_in 'Phone number', :with => '1234567'
   click_button 'Sign up'
   visit(products_path)
-  click_link 'Add To Shopping Cart'
+  click_link 'Silk'
+  click_link 'Add to Cart'
   visit(products_path)
-  click_link 'Add To Shopping Cart'
+  click_link 'Silk'
+  click_link 'Add to Cart'
 end
 
 Then(/^I should be able to see the product with updated quantity$/) do

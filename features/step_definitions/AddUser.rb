@@ -14,11 +14,11 @@ When(/^I fill in individual information$/) do
 end
 
 Then(/^I should be able to see the home page$/) do
-  assert page.has_content?("Welcome! You have signed up successfully.")
+  assert_text(/Home Hello, xiaoyuan/)
 end
 
 When(/^I fill in user information with the username blank$/) do
-  click_link 'Sign Out'
+  # click_link 'Sign Out'
   visit(new_user_registration_path)
   fill_in 'Name', :with => ''
   fill_in 'Email', :with => 'bizhen@seas.upenn.edu'
@@ -35,7 +35,7 @@ Then(/^I should be able to see the username blank error$/) do
 end
 
 When(/^I fill in user information with the phone number blank$/) do
-  click_link 'Sign Out'
+  # click_link 'Sign Out'
   visit(new_user_registration_path)
   fill_in 'Name', :with => 'xiaoyuan'
   fill_in 'Email', :with => 'bizhen@seas.upenn.edu'
@@ -52,7 +52,7 @@ Then(/^I should be able to see the phone number blank error$/) do
 end
 
 When(/^I fill in user information with the phone number larger than (\d+) digit$/) do |arg1|
-  click_link 'Sign Out'
+  # click_link 'Sign Out'
   visit(new_user_registration_path)
   fill_in 'Name', :with => 'xiaoyuan'
   fill_in 'Email', :with => 'bizhen@seas.upenn.edu'
@@ -69,7 +69,7 @@ Then(/^I should be able to see the phone number error$/) do
 end
 
 When(/^I fill in user information with age less than (\d+)$/) do |arg1|
-  click_link 'Sign Out'
+  # click_link 'Sign Out'
   visit(new_user_registration_path)
   fill_in 'Name', :with => 'xiaoyuan'
   fill_in 'Email', :with => 'bizhen@seas.upenn.edu'
@@ -86,7 +86,7 @@ Then(/^I should be able to see the age error$/) do
 end
 
 When(/^I fill in user information with phone number with characters other than digits or '-'$/) do
-  click_link 'Sign Out'
+  # click_link 'Sign Out'
   visit(new_user_registration_path)
   fill_in 'Name', :with => 'xiaoyuan'
   fill_in 'Email', :with => 'bizhen@seas.upenn.edu'
@@ -103,7 +103,7 @@ Then(/^I should be able to see the phone number characters error$/) do
 end
 
 When(/^I fill in user information with gender that is not female or male \(case insensitive\)$/) do
-  click_link 'Sign Out'
+  # click_link 'Sign Out'
   visit(new_user_registration_path)
   fill_in 'Name', :with => 'xiaoyuan'
   fill_in 'Email', :with => 'bizhen@seas.upenn.edu'

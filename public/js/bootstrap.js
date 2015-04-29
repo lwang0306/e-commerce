@@ -8,7 +8,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 /* ========================================================================
  * Bootstrap: transition.js v3.1.1
- * http://getbootstrap.com/javascript/#transitions
+ * http://getbootstrap.com/javascripts/#transitions
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -57,7 +57,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 /* ========================================================================
  * Bootstrap: alert.js v3.1.1
- * http://getbootstrap.com/javascript/#alerts
+ * http://getbootstrap.com/javascripts/#alerts
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -146,7 +146,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 /* ========================================================================
  * Bootstrap: button.js v3.1.1
- * http://getbootstrap.com/javascript/#buttons
+ * http://getbootstrap.com/javascripts/#buttons
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -254,7 +254,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 /* ========================================================================
  * Bootstrap: carousel.js v3.1.1
- * http://getbootstrap.com/javascript/#carousel
+ * http://getbootstrap.com/javascripts/#carousel
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -460,7 +460,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 /* ========================================================================
  * Bootstrap: collapse.js v3.1.1
- * http://getbootstrap.com/javascript/#collapse
+ * http://getbootstrap.com/javascripts/#collapse
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -631,7 +631,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 /* ========================================================================
  * Bootstrap: dropdown.js v3.1.1
- * http://getbootstrap.com/javascript/#dropdowns
+ * http://getbootstrap.com/javascripts/#dropdowns
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -779,7 +779,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 /* ========================================================================
  * Bootstrap: modal.js v3.1.1
- * http://getbootstrap.com/javascript/#modals
+ * http://getbootstrap.com/javascripts/#modals
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -1023,7 +1023,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 /* ========================================================================
  * Bootstrap: tooltip.js v3.1.1
- * http://getbootstrap.com/javascript/#tooltip
+ * http://getbootstrap.com/javascripts/#tooltip
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
@@ -1423,7 +1423,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 /* ========================================================================
  * Bootstrap: popover.js v3.1.1
- * http://getbootstrap.com/javascript/#popovers
+ * http://getbootstrap.com/javascripts/#popovers
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -1534,7 +1534,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 /* ========================================================================
  * Bootstrap: scrollspy.js v3.1.1
- * http://getbootstrap.com/javascript/#scrollspy
+ * http://getbootstrap.com/javascripts/#scrollspy
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -1688,7 +1688,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 /* ========================================================================
  * Bootstrap: tab.js v3.1.1
- * http://getbootstrap.com/javascript/#tabs
+ * http://getbootstrap.com/javascripts/#tabs
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -1814,7 +1814,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 /* ========================================================================
  * Bootstrap: affix.js v3.1.1
- * http://getbootstrap.com/javascript/#affix
+ * http://getbootstrap.com/javascripts/#affix
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
