@@ -89,22 +89,19 @@
     </div>
     <br>
     <br>
-    <h2><li style = "color: #FFA500"><%= link_to "Product List",  admin_branch_products_path %></li></h2>
-    <p>Admins can add new products</p>
+
+    <h2><li style = "color: #FFA500"><%= link_to "Email List", welcomes_path + "/email_list" %></li></h2>
     <br>
-    <h2><li style = "color: #FFA500"><%= link_to "Category List", categories_path %></li></h2>
-    <p>Admin can add new categories</p>
     <br>
-    <h2><li style = "color: #FFA500"><%= link_to "Blog List", admin_branch_blogs_path %></li></h2>
-    <p>Admin can create new blogs</p>
-    <br>
-    <h2><li style = "color: #FFA500"><%= link_to "Email List", welcomes_path + "/email/list" %></li></h2>
-    <p>Admin can view emails of all users</p>
+    <% @users.each do |user| %>
+        <p><%= user.email.to_s %></p>
+        <br>
+    <% end %>
     <br/>
     <br/>
     <div class="container">
       <div class="back" >
-        <%= button_to "Log out", destroy_admin_session_path, :style => "background: #FFA500; color: #fff;border-radius: 10px;font-weight:bold;font-size:34px;" ,:method => :delete  %>
+        <%= button_to "Back to Admin", welcomes_path + "/admin/page", :style => "background: #FFA500; color: #fff;border-radius: 10px;font-weight:bold;font-size:34px;" ,:method => :get  %>
         <br>
       </div>
     </div>

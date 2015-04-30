@@ -42,9 +42,8 @@ Rails.application.routes.draw do
     resources :welcomes do
       collection do
         get '/admin/page' => 'welcomes#admin_page'
-      end
-      collection do
         get '/aboutus/page' => 'welcomes#aboutus'
+        get '/email/list' => 'welcomes#get_email_list'
       end
     end
 
