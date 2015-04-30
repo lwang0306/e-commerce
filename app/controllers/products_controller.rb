@@ -17,17 +17,18 @@ class ProductsController < ApplicationController
   def show
     all_products = Product.all
     @recent_products = []
-    if (all_products.size() <= 3) then
-      @recent_products = all_products
-    else
-      size = all_products.size()
-      @recent_products << Product.find(size - 1)
-      @recent_products << Product.find(size - 2)
-      @recent_products << Product.find(size - 3)
+    i = 0
+    if (all_products.size() > 0) then
+      i = all_products.last().id
+    end
+    while (@recent_products.length < 3 && i >= 1)
+      if (Product.exists?(i)) then
+        @recent_products << Product.find(i)
+      end
+      i -= 1
     end
     @products = Product.all
     @blogs = Blog.all.order('id desc')
-
   end
 
   # GET /products/new
