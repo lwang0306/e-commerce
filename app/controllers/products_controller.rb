@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
-    @blogs = Blog.all.order('id desc')
   end
 
   # GET /products/1
@@ -28,19 +27,16 @@ class ProductsController < ApplicationController
       i -= 1
     end
     @products = Product.all
-    @blogs = Blog.all.order('id desc')
   end
 
   # GET /products/new
   def new
     @product = Product.new
-    @blogs = Blog.all.order('id desc')
     render :layout => false
   end
 
   # GET /products/1/edit
   def edit
-    @blogs = Blog.all.order('id desc')
     render :layout => false
   end
 
@@ -49,7 +45,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @products = Product.all
-    @blogs = Blog.all.order('id desc')
     category_ids = params[:category][:category_id][1..-1]
     category_ids.each do |i|
       c = Category.find(i)
@@ -74,7 +69,6 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1.json
   def update
     @products = Product.all
-    @blogs = Blog.all.order('id desc')
     category_ids = params[:category][:category_id][1..-1]
     category_ids.each do |i|
       c = Category.find(i)
@@ -98,7 +92,6 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     @products = Product.all
-    @blogs = Blog.all.order('id desc')
     respond_to do |format|
       format.html { render :admin_branch, notice: 'Products was successfully destroyed.' }
       format.json { head :no_content }
@@ -110,14 +103,12 @@ class ProductsController < ApplicationController
     num = params[:cate_num]
     c = Category.find(num)
     @products = Category.find(num).products
-    @blogs = Blog.all.order('id desc')
     render :index
   end
 
   def view_shopping_cart
     current_user = User.find(session['warden.user.user.key'][0][0])
     @products = current_user.products
-    @blogs = Blog.all.order('id desc')
     render :shopping_cart
   end
 
@@ -127,7 +118,6 @@ class ProductsController < ApplicationController
     @products = current_user.products
     # render :shopping_cart
     redirect_to '/products/my/shopping_cart'
-    @blogs = Blog.all.order('id desc')
   end
 
   def decrease_quantity
@@ -146,7 +136,6 @@ class ProductsController < ApplicationController
     end
     @products = current_user.products
     redirect_to "/products/my/shopping_cart"
-    @blogs = Blog.all.order('id desc')
   end
 
   def increase_quantity
@@ -155,7 +144,6 @@ class ProductsController < ApplicationController
     current_user.products << product_to_add
     @products = current_user.products
     redirect_to "/products/my/shopping_cart"
-    @blogs = Blog.all.order('id desc')
   end
 
   private

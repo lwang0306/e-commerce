@@ -134,174 +134,162 @@ http://www.templatemo.com/preview/templatemo_417_grill
         </div>
       </div>
     </div>
+
+
     <div class="row">
+
       <div class="col-md-4 col-sm-6">
         <div class="blog-post">
           <div class="blog-thumb">
-            <% if @blogs[0] != nil %>
-            <%= image_tag @blogs[0].picture_url(:thumb).to_s %>
+            <% if (@recent_blogs.length >= 1) then %>
+                <%= image_tag @recent_blogs[0].picture_url(:thumb).to_s %>
             <% end %>
-            <!--<img src="images/blogpost1.jpg" alt="" />-->
           </div>
           <div class="blog-content">
             <div class="content-show">
-              <h4><a href="blogs.html">
-                <% if @blogs[0] != nil %>
-                    <%= @blogs[0].title %>
-                <% end %>
-              </a></h4>
-              <!--<span>-->
-               <!---->
-              <!--</span>-->
+              <% if (@recent_blogs.length >= 1) then %>
+                  <%= @recent_blogs[0].title %>
+              <% end %>
             </div>
             <div class="content-hide">
               <p>
-                <% if @blogs[0] != nil %>
-                    <%= @blogs[0].content %>
+                <% if (@recent_blogs.length >= 1) then %>
+                    <%= @recent_blogs[0].content %>
                 <% end %>
               </p>
             </div>
           </div>
         </div>
       </div>
+
       <div class="col-md-4 col-sm-6">
         <div class="blog-post">
           <div class="blog-thumb">
-            <!--<img src="images/blogpost2.jpg" alt="" />-->
-            <% if @blogs[1] != nil %>
-                <%= image_tag @blogs[1].picture_url(:thumb).to_s %>
+            <% if (@recent_blogs.length >= 2) then %>
+                <%= image_tag @recent_blogs[1].picture_url(:thumb).to_s %>
             <% end %>
           </div>
           <div class="blog-content">
             <div class="content-show">
-              <h4><a href="blogs.html">
-                <% if @blogs[1] != nil %>
-                    <%= @blogs[1].title %>
-                <% end %>
-              </a></h4>
-              <!--<span>23 Sep 2084</span>-->
+              <% if (@recent_blogs.length >= 2) then %>
+                  <%= @recent_blogs[1].title %>
+              <% end %>
             </div>
             <div class="content-hide">
               <p>
-                <% if @blogs[1] != nil %>
-                    <%= @blogs[1].content %>
+                <% if (@recent_blogs.length >= 2) then %>
+                    <%= @recent_blogs[1].content %>
                 <% end %>
               </p>
             </div>
           </div>
         </div>
       </div>
+
       <div class="col-md-4 col-sm-6">
         <div class="blog-post">
           <div class="blog-thumb">
-            <!--<img src="images/blogpost3.jpg" alt="" />-->
-            <% if @blogs[2] != nil %>
-                <%= image_tag @blogs[2].picture_url(:thumb).to_s %>
+            <% if (@recent_blogs.length >= 3) then %>
+                <%= image_tag @recent_blogs[2].picture_url(:thumb).to_s %>
             <% end %>
           </div>
           <div class="blog-content">
             <div class="content-show">
-              <h4><a href="blogs.html">
-                <% if @blogs[2] != nil %>
-                    <%= @blogs[2].title %>
-                <% end %>
-              </a></h4>
-              <!--<span>14 Sep 2084</span>-->
+              <% if (@recent_blogs.length >= 3) then %>
+                  <%= @recent_blogs[2].title %>
+              <% end %>
             </div>
             <div class="content-hide">
               <p>
-                <% if @blogs[2] != nil %>
-                    <%= @blogs[2].content %>
+                <% if (@recent_blogs.length >= 3) then %>
+                    <%= @recent_blogs[2].content %>
                 <% end %>
               </p>
             </div>
           </div>
         </div>
       </div>
+
     </div>
-    <div class = "row">
+
+
+
+    <div class="row">
+
       <div class="col-md-4 col-sm-6">
         <div class="blog-post">
           <div class="blog-thumb">
-            <!--<img src="images/blogpost4.jpg" alt="" />-->
-            <% if @blogs[3] != nil %>
-                <%= image_tag @blogs[3].picture_url(:thumb).to_s %>
+            <% if (@recent_blogs.length >= 4) then %>
+                <%= image_tag @recent_blogs[3].picture_url(:thumb).to_s %>
             <% end %>
           </div>
           <div class="blog-content">
             <div class="content-show">
-              <h4><a href="blogs.html">
-                <% if @blogs[3] != nil %>
-                    <%= @blogs[3].title %>
-                <% end %>
-              </a></h4>
-              <!--<span>25 Aug 2084</span>-->
+              <% if (@recent_blogs.length >= 4) then %>
+                  <%= @recent_blogs[3].title %>
+              <% end %>
             </div>
             <div class="content-hide">
               <p>
-                <% if @blogs[3] != nil %>
-                    <%= @blogs[3].content %>
+                <% if (@recent_blogs.length >= 4) then %>
+                    <%= @recent_blogs[3].content %>
                 <% end %>
               </p>
             </div>
           </div>
         </div>
       </div>
+
       <div class="col-md-4 col-sm-6">
         <div class="blog-post">
           <div class="blog-thumb">
-            <!--<img src="images/blogpost5.jpg" alt="" />-->
-            <% if @blogs[4] != nil %>
-                <%= image_tag @blogs[4].picture_url(:thumb).to_s %>
+            <% if (@recent_blogs.length >= 5) then %>
+                <%= image_tag @recent_blogs[4].picture_url(:thumb).to_s %>
             <% end %>
           </div>
           <div class="blog-content">
             <div class="content-show">
-              <h4><a href="blogs.html">
-                <% if @blogs[4] != nil %>
-                    <%= @blogs[4].title %>
-                <% end %>
-              </a></h4>
-              <!--<span>17 Aug 2084</span>-->
+              <% if (@recent_blogs.length >= 5) then %>
+                  <%= @recent_blogs[4].title %>
+              <% end %>
             </div>
             <div class="content-hide">
               <p>
-                <% if @blogs[4] != nil %>
-                    <%= @blogs[4].content %>
+                <% if (@recent_blogs.length >= 5) then %>
+                    <%= @recent_blogs[4].content %>
                 <% end %>
               </p>
             </div>
           </div>
         </div>
       </div>
+
       <div class="col-md-4 col-sm-6">
         <div class="blog-post">
           <div class="blog-thumb">
-            <!--<img src="images/blogpost6.jpg" alt="" />-->
-            <% if @blogs[5] != nil %>
-                <%= image_tag @blogs[5].picture_url(:thumb).to_s %>
+            <% if (@recent_blogs.length >= 6) then %>
+                <%= image_tag @recent_blogs[5].picture_url(:thumb).to_s %>
             <% end %>
           </div>
           <div class="blog-content">
             <div class="content-show">
-              <h4><a href="blogs.html">
-                <% if @blogs[5] != nil %>
-                    <%= @blogs[5].title %>
-                <% end %>
-              </a></h4>
-              <!--<span>12 Aug 2084</span>-->
+              <% if (@recent_blogs.length >= 6) then %>
+                  <%= @recent_blogs[5].title %>
+              <% end %>
             </div>
             <div class="content-hide">
               <p>
-                <% if @blogs[5] != nil %>
-                    <%= @blogs[5].content %>
+                <% if (@recent_blogs.length >= 6) then %>
+                    <%= @recent_blogs[5].content %>
                 <% end %>
               </p>
             </div>
           </div>
         </div>
       </div>
+
     </div>
+
   </div>
 </div>
 

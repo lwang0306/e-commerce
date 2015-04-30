@@ -2,13 +2,24 @@ class WelcomesController < ApplicationController
   before_action :set_welcome, only: [:show, :edit, :update, :destroy]
 
   def admin_page
-    @blogs = Blog.all.order('id desc')
     render 'admin_page', :layout => false
   end
   # GET /welcomes
   # GET /welcomes.json
   def index
-    @blogs = Blog.all.order('id desc')
+    all_blogs = Blog.all
+    @recent_blogs = []
+    i = 0
+    if (all_blogs.length > 0) then
+      i = all_blogs.last().id
+    end
+
+    while (@recent_blogs.length < 6 && i >= 1)
+      if (Blog.exists?(i)) then
+        @recent_blogs << Blog.find(i)
+      end
+      i -= 1
+    end
   end
 
   # GET /welcomes/1
@@ -18,7 +29,6 @@ class WelcomesController < ApplicationController
   end
 
   def aboutus
-    @blogs = Blog.all.order('id desc')
     render 'about-us', :layout  => false
   end
 

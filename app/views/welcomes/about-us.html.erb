@@ -98,14 +98,14 @@
         <div class="col-md-6">
           <div class="main-menu">
             <ul>
-              <%= link_to "Home", welcomes_path %>
+              <li><%= link_to "Home", welcomes_path %></li>
               <!--<li><a href="index.html">Home</a></li>-->
               <!--<li><a href="about-us.html.erb">About</a></li>-->
-              <%= link_to "About",  aboutus_page_welcomes_path %>
-              <%= link_to "Products", products_path %>
+              <li><%= link_to "About",  aboutus_page_welcomes_path %></li>
+              <li><%= link_to "Products", products_path %></li>
               <!--<li><a href="products.html">Products</a></li>-->
               <!--<li><a href="contact-us.html">Contact</a></li>-->
-              <%= link_to "Blog", blogs_path %>
+              <li><%= link_to "Blog", blogs_path %></li>
             </ul>
           </div>
         </div>
@@ -475,80 +475,82 @@
           <!--</ul>-->
           <!--</div>-->
           <!--</div>-->
+
+          <% all_blogs = Blog.all %>
+          <% recent_blogs = [] %>
+          <% i = 0 %>
+          <% if (all_blogs.length > 0) then %>
+              <% i = all_blogs.last().id %>
+          <% end %>
+
+          <% while (recent_blogs.length < 4 && i >= 1) %>
+              <% if (Blog.exists?(i)) then %>
+                  <% recent_blogs << Blog.find(i) %>
+              <% end %>
+              <% i -= 1 %>
+          <% end %>
+
           <div class="col-md-3">
             <div class="recent-posts">
               <h4 class="footer-title">Recent posts</h4>
-              <div class="recent-post">
-                <div class="recent-post-thumb">
-                  <!--<img src="images/recent-post1.jpg" alt="">-->
-                  <% if @blogs[0] != nil %>
-                      <%= image_tag @blogs[0].picture_url(:thumb).to_s %>
-                  <% end %>
-                </div>
-                <div class="recent-post-info">
-                  <h6><a href="#">
-                    <% if @blogs[0] != nil %>
-                        <%= @blogs[0].title %>
-                    <% end %>
-                  </a></h6>
-                  <!--<span>24/12/2084</span>-->
-                </div>
-              </div>
-              <div class="recent-post">
-                <div class="recent-post-thumb">
-                  <!--<img src="images/recent-post2.jpg" alt="">-->
-                  <% if @blogs[1] != nil %>
-                      <%= image_tag @blogs[1].picture_url(:thumb).to_s %>
-                  <% end %>
-                </div>
-                <div class="recent-post-info">
-                  <h6><a href="#">
-                    <% if @blogs[1] != nil %>
-                        <%= @blogs[1].title %>
-                    <% end %>
-                  </a></h6>
-                  <!--<span>18/12/2084</span>-->
-                </div>
-              </div>
+              <% if (recent_blogs.length >= 1) then %>
+                  <div class="recent-post">
+                    <div class="recent-post-thumb">
+                      <%= image_tag recent_blogs[0].picture_url(:thumb).to_s %>
+                    </div>
+                    <div class="recent-post-info">
+                      <h6><a href="#">
+                        <%= recent_blogs[0].title %>
+                      </a></h6>
+                    </div>
+                  </div>
+              <% end %>
+              <% if (recent_blogs.length >= 2) then %>
+                  <div class="recent-post">
+                    <div class="recent-post-thumb">
+                      <%= image_tag recent_blogs[1].picture_url(:thumb).to_s %>
+                    </div>
+                    <div class="recent-post-info">
+                      <h6><a href="#">
+                        <%= recent_blogs[1].title %>
+                      </a></h6>
+                    </div>
+                  </div>
+              <% end %>
             </div>
           </div>
           <div class="col-md-3">
             <div class="recent-posts">
               <h4 class="footer-title">Recent posts</h4>
-              <div class="recent-post">
-                <div class="recent-post-thumb">
-                  <!--<img src="images/recent-post1.jpg" alt="">-->
-                  <% if @blogs[2] != nil %>
-                      <%= image_tag @blogs[2].picture_url(:thumb).to_s %>
-                  <% end %>
-                </div>
-                <div class="recent-post-info">
-                  <h6><a href="#">
-                    <% if @blogs[2] != nil %>
-                        <%= @blogs[2].title %>
-                    <% end %>
-                  </a></h6>
-                  <!--<span>24/12/2084</span>-->
-                </div>
-              </div>
-              <div class="recent-post">
-                <div class="recent-post-thumb">
-                  <!--<img src="images/recent-post2.jpg" alt="">-->
-                  <% if @blogs[3] != nil %>
-                      <%= image_tag @blogs[3].picture_url(:thumb).to_s %>
-                  <% end %>
-                </div>
-                <div class="recent-post-info">
-                  <h6><a href="#">
-                    <% if @blogs[3] != nil %>
-                        <%= @blogs[3].title %>
-                    <% end %>
-                  </a></h6>
-                  <!--<span>18/12/2084</span>-->
-                </div>
-              </div>
+              <% if (recent_blogs.length >= 3) then %>
+                  <div class="recent-post">
+                    <div class="recent-post-thumb">
+                      <%= image_tag recent_blogs[2].picture_url(:thumb).to_s %>
+                    </div>
+                    <div class="recent-post-info">
+                      <h6><a href="#">
+                        <%= recent_blogs[2].title %>
+                      </a></h6>
+                    </div>
+                  </div>
+              <% end %>
+              <% if (recent_blogs.length >= 4) then %>
+                  <div class="recent-post">
+                    <div class="recent-post-thumb">
+                      <%= image_tag recent_blogs[3].picture_url(:thumb).to_s %>
+                    </div>
+                    <div class="recent-post-info">
+                      <h6><a href="#">
+                        <%= recent_blogs[3].title %>
+                      </a></h6>
+                    </div>
+                  </div>
+              <% end %>
             </div>
           </div>
+
+
+
           <div class="col-md-3">
             <div class="more-info">
               <h4 class="footer-title">More info</h4>
