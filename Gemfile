@@ -43,6 +43,7 @@ group :test, :development do
   gem 'capybara'
   gem 'launchy'
   gem 'sqlite3'
+  gem "simplecov", :require => false
 end
 
 group :production do
