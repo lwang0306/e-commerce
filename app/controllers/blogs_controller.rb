@@ -2,14 +2,12 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def admin
-    @blogs = Blog.all.order('id desc')
     @blogs = Blog.all
     render 'admin_branch', :layout => false
   end
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all.order('id desc')
     @blogs = Blog.all
 
   end
@@ -17,13 +15,11 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @blogs = Blog.all.order('id desc')
 
   end
 
   # GET /blogs/new
   def new
-    @blogs = Blog.all.order('id desc')
     @blog = Blog.new
     render :layout => false
   end
@@ -36,14 +32,12 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
-    @blogs = Blog.all.order('id desc')
     render :layout => false
   end
 
   # POST /blogs
   # POST /blogs.json
   def create
-    @blogs = Blog.all.order('id desc')
     @blog = Blog.new(blog_params)
 
     respond_to do |format|
@@ -72,7 +66,6 @@ class BlogsController < ApplicationController
   # PATCH/PUT /blogs/1
   # PATCH/PUT /blogs/1.json
   def update
-    @blogs = Blog.all.order('id desc')
     respond_to do |format|
       if @blog.update(blog_params)
         format.html { render :admin_branch, notice: 'Blog was successfully updated.' }
@@ -87,7 +80,6 @@ class BlogsController < ApplicationController
   # DELETE /blogs/1
   # DELETE /blogs/1.json
   def destroy
-    @blogs = Blog.all.order('id desc')
     @blog.destroy
     respond_to do |format|
       format.html { render :admin_branch, notice: 'Blog was successfully destroyed.' }
