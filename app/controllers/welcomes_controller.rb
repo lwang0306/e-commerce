@@ -4,6 +4,12 @@ class WelcomesController < ApplicationController
   def admin_page
     render 'admin_page', :layout => false
   end
+
+  def get_email_list
+    @users = User.all
+    render 'email_list', :layout => false
+  end
+
   # GET /welcomes
   # GET /welcomes.json
   def index

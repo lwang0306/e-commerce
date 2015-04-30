@@ -496,24 +496,24 @@
               <% if (recent_blogs.length >= 1) then %>
                   <div class="recent-post">
                     <div class="recent-post-thumb">
-                      <%= image_tag recent_blogs[0].picture_url(:thumb).to_s %>
+                      <%= link_to image_tag(recent_blogs[0].picture_url(:thumb).to_s), recent_blogs[0] %>
                     </div>
                     <div class="recent-post-info">
-                      <h6><a href="#">
-                        <%= recent_blogs[0].title %>
-                      </a></h6>
+                      <h6>
+                        <%= link_to recent_blogs[0].title, recent_blogs[0] %>
+                      </h6>
                     </div>
                   </div>
               <% end %>
               <% if (recent_blogs.length >= 2) then %>
                   <div class="recent-post">
                     <div class="recent-post-thumb">
-                      <%= image_tag recent_blogs[1].picture_url(:thumb).to_s %>
+                      <%= link_to image_tag(recent_blogs[1].picture_url(:thumb).to_s), recent_blogs[1] %>
                     </div>
                     <div class="recent-post-info">
-                      <h6><a href="#">
-                        <%= recent_blogs[1].title %>
-                      </a></h6>
+                      <h6>
+                        <%= link_to recent_blogs[1].title, recent_blogs[1] %>
+                      </h6>
                     </div>
                   </div>
               <% end %>
@@ -525,24 +525,24 @@
               <% if (recent_blogs.length >= 3) then %>
                   <div class="recent-post">
                     <div class="recent-post-thumb">
-                      <%= image_tag recent_blogs[2].picture_url(:thumb).to_s %>
+                      <%= link_to image_tag(recent_blogs[2].picture_url(:thumb).to_s), recent_blogs[2] %>
                     </div>
                     <div class="recent-post-info">
-                      <h6><a href="#">
-                        <%= recent_blogs[2].title %>
-                      </a></h6>
+                      <h6>
+                        <%= link_to recent_blogs[2].title, recent_blogs[2] %>
+                      </h6>
                     </div>
                   </div>
               <% end %>
               <% if (recent_blogs.length >= 4) then %>
                   <div class="recent-post">
                     <div class="recent-post-thumb">
-                      <%= image_tag recent_blogs[3].picture_url(:thumb).to_s %>
+                      <%= link_to image_tag(recent_blogs[3].picture_url(:thumb).to_s), recent_blogs[3] %>
                     </div>
                     <div class="recent-post-info">
-                      <h6><a href="#">
-                        <%= recent_blogs[3].title %>
-                      </a></h6>
+                      <h6>
+                        <%= link_to recent_blogs[3].title, recent_blogs[3] %>
+                      </h6>
                     </div>
                   </div>
               <% end %>
