@@ -5,10 +5,6 @@ class Category < ActiveRecord::Base
 
   def get_products
     products = self.products
-    puts "self productsssssss"
-    puts self.products
-    puts "productsssssssss"
-    puts products
     return products
   end
 end

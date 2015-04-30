@@ -4,7 +4,13 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter "/test/"
+  add_filter "/features/support/paths.rb"
+  add_filter "/features/support/selectors.rb"
+  add_filter "/features/step_definitions/AddProductToShoppingCart.rb"
+  add_filter "/features/step_definitions/EditQuantityInShoppingCart.rb"
+end
 
 require 'cucumber/rails'
 
